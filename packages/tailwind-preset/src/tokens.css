@@ -1,0 +1,27 @@
+/**
+ * Design tokens — copy into your globals.css (or let `bitcoin-ui init` do it).
+ * All values are HSL channels (no `hsl()` wrapper) for Tailwind v3 syntax.
+ */
+@layer base {
+  :root {
+    --btc: 32 95% 53%;
+    --btc-orange: 32 95% 53%;
+    --btc-lightning: 271 78% 50%;
+    --btc-fee-low: 142 71% 45%;
+    --btc-fee-medium: 38 92% 50%;
+    --btc-fee-high: 0 84% 60%;
+    --btc-network-mainnet: 32 95% 53%;
+    --btc-network-testnet: 142 71% 45%;
+    --btc-network-signet: 271 78% 50%;
+    --btc-network-regtest: 240 5% 65%;
+  }
+
+  .dark {
+    --btc: 32 95% 53%;
+    --btc-orange: 32 95% 53%;
+    --btc-lightning: 271 80% 65%;
+    --btc-fee-low: 142 65% 55%;
+    --btc-fee-medium: 38 90% 60%;
+    --btc-fee-high: 0 80% 70%;
+  }
+}

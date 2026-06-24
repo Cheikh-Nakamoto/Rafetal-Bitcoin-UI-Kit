@@ -1,0 +1,10 @@
+{
+  "name": "@btc-ui/tsconfig",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "files": ["base.json", "library.json", "react.json", "nextjs.json"]
+}

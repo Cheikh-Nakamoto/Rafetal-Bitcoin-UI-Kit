@@ -1,0 +1,8 @@
+{
+  "extends": "@btc-ui/tsconfig/react.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "composite": false
+  },
+  "include": [".storybook/**/*.ts", ".storybook/**/*.tsx"]
+}

@@ -1,0 +1,92 @@
+{
+  "name": "@btc-ui/core",
+  "version": "0.0.0",
+  "description": "Framework-agnostic TypeScript primitives for Bitcoin UIs: sat/BTC math, address validation, BOLT11, BIP21, BIP39, wallet abstraction.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./units": {
+      "types": "./dist/units/index.d.ts",
+      "import": "./dist/units/index.js"
+    },
+    "./format": {
+      "types": "./dist/format/index.d.ts",
+      "import": "./dist/format/index.js"
+    },
+    "./address": {
+      "types": "./dist/address/index.d.ts",
+      "import": "./dist/address/index.js"
+    },
+    "./bolt11": {
+      "types": "./dist/bolt11/index.d.ts",
+      "import": "./dist/bolt11/index.js"
+    },
+    "./bip21": {
+      "types": "./dist/bip21/index.d.ts",
+      "import": "./dist/bip21/index.js"
+    },
+    "./bip39": {
+      "types": "./dist/bip39/index.d.ts",
+      "import": "./dist/bip39/index.js"
+    },
+    "./psbt": {
+      "types": "./dist/psbt/index.d.ts",
+      "import": "./dist/psbt/index.js"
+    },
+    "./fees": {
+      "types": "./dist/fees/index.d.ts",
+      "import": "./dist/fees/index.js"
+    },
+    "./mempool": {
+      "types": "./dist/mempool/index.d.ts",
+      "import": "./dist/mempool/index.js"
+    },
+    "./price": {
+      "types": "./dist/price/index.d.ts",
+      "import": "./dist/price/index.js"
+    },
+    "./wallet": {
+      "types": "./dist/wallet/index.d.ts",
+      "import": "./dist/wallet/index.js"
+    },
+    "./lnurl": {
+      "types": "./dist/lnurl/index.d.ts",
+      "import": "./dist/lnurl/index.js"
+    },
+    "./nostr": {
+      "types": "./dist/nostr/index.d.ts",
+      "import": "./dist/nostr/index.js"
+    },
+    "./qr": {
+      "types": "./dist/qr/index.d.ts",
+      "import": "./dist/qr/index.js"
+    }
+  },
+  "files": ["dist", "README.md"],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist .turbo"
+  },
+  "devDependencies": {
+    "@btc-ui/tsconfig": "workspace:*",
+    "@types/node": "^22.7.5",
+    "tsup": "^8.3.0",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

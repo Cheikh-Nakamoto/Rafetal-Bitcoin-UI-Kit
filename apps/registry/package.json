@@ -1,0 +1,39 @@
+{
+  "name": "@btc-ui/registry",
+  "version": "0.0.0",
+  "private": true,
+  "description": "btc-ui.dev — the public docs site and component registry for frameworkBTC.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "build:registry": "tsx scripts/build-registry.ts",
+    "start": "next start",
+    "lint": "biome check .",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf .next .turbo public/r"
+  },
+  "dependencies": {
+    "@btc-ui/core": "workspace:*",
+    "@btc-ui/react": "workspace:*",
+    "@btc-ui/tailwind-preset": "workspace:*",
+    "fumadocs-core": "^14.0.0",
+    "fumadocs-mdx": "^11.0.0",
+    "fumadocs-ui": "^14.0.0",
+    "next": "^15.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@btc-ui/tsconfig": "workspace:*",
+    "@types/node": "^22.7.5",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.0",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.3"
+  }
+}

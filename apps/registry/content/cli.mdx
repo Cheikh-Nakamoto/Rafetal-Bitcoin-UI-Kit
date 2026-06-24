@@ -1,0 +1,70 @@
+---
+title: CLI reference
+description: bitcoin-ui — commands and configuration.
+---
+
+# CLI
+
+The `bitcoin-ui` CLI installs and manages frameworkBTC components in your project.
+
+## Commands
+
+### `init`
+
+```bash
+bitcoin-ui init [--yes]
+```
+
+Creates `components.json`, installs the Tailwind preset, writes design-token CSS variables to your global stylesheet, and configures the import aliases. Idempotent — safe to re-run.
+
+### `add`
+
+```bash
+bitcoin-ui add <component> [<component> ...] [--yes] [--overwrite]
+```
+
+Resolves the manifest for each component (and recursively for registry dependencies), copies the source files into your project, and installs npm peer dependencies via your detected package manager.
+
+### `diff`
+
+```bash
+bitcoin-ui diff [<component>]
+```
+
+Shows the diff between your local copy of a component and the upstream registry version. With no argument, lists every locally modified component.
+
+### `list`
+
+```bash
+bitcoin-ui list
+```
+
+Prints all available components grouped by category.
+
+## `components.json`
+
+```jsonc
+{
+  "$schema": "https://btc-ui.dev/schema.json",
+  "style": "default",                 // "default" | "headless"
+  "tsx": true,
+  "tailwind": {
+    "config": "tailwind.config.ts",
+    "css": "app/globals.css",
+    "cssVariables": true,
+    "preset": "@btc-ui/tailwind-preset"
+  },
+  "network": "mainnet",               // default network for examples
+  "iconLibrary": "lucide",            // "lucide" | "@btc-ui/icons" | "tabler"
+  "aliases": {
+    "components": "@/components",
+    "ui":         "@/components/ui",     // for coexistence with shadcn/ui
+    "btcUi":      "@/components/btc-ui", // frameworkBTC components live here
+    "hooks":      "@/hooks",
+    "lib":        "@/lib",
+    "utils":      "@/lib/utils"
+  }
+}
+```
+
+The `btcUi` alias is **distinct from `ui`** so that frameworkBTC and shadcn/ui can coexist in the same project without name collisions.

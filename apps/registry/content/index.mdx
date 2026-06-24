@@ -1,0 +1,37 @@
+---
+title: Introduction
+description: What frameworkBTC is and why it exists.
+---
+
+# frameworkBTC
+
+A copy-paste registry of accessible UI components for building Bitcoin and Lightning apps.
+
+Every Bitcoin app rebuilds the same primitives — balance displays, address formatters, fee selectors, seed phrase inputs — from scratch. **frameworkBTC** solves this with two complementary distribution channels:
+
+1. **A CLI registry** (`bitcoin-ui add <component>`) — components are copied into your project. You own the code. Style it, audit it, fork it.
+2. **npm packages** (`@btc-ui/core`, `@btc-ui/react`) — for shared logic that doesn't make sense to copy-paste: BigInt sat math, BOLT11 decoding, address validation, wallet provider abstraction.
+
+## Principles
+
+- **Bitcoin-native.** BigInt sat math (never floats), network-aware validation, multi-protocol wallet abstraction (WebLN, NWC, BitcoinConnect).
+- **Headless first.** Compound primitives with `asChild`, slots, render-props. Tailwind reference shipped; you can plug any design system.
+- **Self-custody friendly.** Zero telemetry, zero analytics, no remote calls outside what you opt into.
+- **Framework-agnostic core.** All logic in TypeScript-only `@btc-ui/core`. React first; Vue/Svelte adapters planned without rewriting logic.
+
+## Quick start
+
+```bash
+npx bitcoin-ui@latest init
+npx bitcoin-ui@latest add balance
+```
+
+```tsx
+import { Balance } from "@/components/btc-ui/balance"
+
+export default function Wallet() {
+  return <Balance value={50_000n} unit="sat" />
+}
+```
+
+Head to [Getting started](/docs/getting-started) for the full installation flow, or [browse the component catalog](/docs/components).

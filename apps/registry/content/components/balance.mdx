@@ -1,0 +1,81 @@
+---
+title: Balance
+description: Display a Bitcoin balance with unit switching between sat, BTC, and fiat.
+---
+
+# Balance
+
+A compound primitive that renders a Bitcoin balance and lets the user toggle between sat, BTC, and the user's selected fiat. BigInt-safe internally — never accepts a `number`.
+
+## Installation
+
+```bash
+npx bitcoin-ui@latest add balance
+```
+
+This installs `components/btc-ui/balance.tsx` plus its registry dependencies (`sat-btc-switch`) and adds the `useBitcoinPrice` hook.
+
+## Usage
+
+### Default (Tailwind reference)
+
+```tsx
+import { Balance } from "@/components/btc-ui/balance"
+
+<Balance value={50_000n} unit="sat" />
+<Balance value={50_000n} unit="btc" />
+<Balance value={50_000n} unit="fiat" fiat="USD" />
+```
+
+### Compound (full control)
+
+```tsx
+<Balance.Root value={50_000n}>
+  <Balance.Value />
+  <Balance.Unit />
+  <Balance.Toggle />
+</Balance.Root>
+```
+
+### asChild — bring your own styled wrapper
+
+```tsx
+<Balance.Root value={50_000n} asChild>
+  <MyDesignSystemCard>
+    <Balance.Value className="text-3xl font-bold" />
+    <Balance.Unit className="text-foreground/60" />
+  </MyDesignSystemCard>
+</Balance.Root>
+```
+
+## API
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `value` | `bigint` | — | Amount in **satoshis**. Required. |
+| `unit` | `"sat" \| "btc" \| "fiat"` | `"sat"` | Initial display unit |
+| `fiat` | `string` | `"USD"` | Fiat code when `unit="fiat"` |
+| `locale` | `string` | browser locale | BCP-47 locale for formatting |
+| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Reference impl only |
+| `asChild` | `boolean` | `false` | Delegate the root element |
+
+## BigInt safety
+
+The component refuses `number` at the type level. This is enforced by a custom Biome lint rule across the workspace — you cannot accidentally pass a float-derived value.
+
+```tsx
+// ❌ does not compile
+<Balance value={50000} />
+
+// ✅
+<Balance value={50_000n} />
+```
+
+## Accessibility
+
+- The toggle button uses `aria-pressed` to reflect the current unit.
+- The displayed amount has an `aria-label` with the canonical sat value, ensuring screen readers always announce the precise amount regardless of the visual unit.
+
+## Status
+
+Phase 1 — not yet implemented. See [todo.md](https://github.com/frameworkBTC/frameworkBTC/blob/main/todo.md).

@@ -1,0 +1,89 @@
+---
+title: Components
+description: The frameworkBTC component catalog.
+---
+
+# Components
+
+## Display
+
+| Component | Phase | Description |
+|---|---|---|
+| [Balance](/docs/components/balance) | 1 | Displays a BTC / sat / fiat balance with unit switching |
+| Address | 1 | Truncated address with copy-on-click |
+| TXID | 1 | Truncated TXID with explorer link |
+| BlockHeight | 1 | Live block height |
+| FiatAmount | 1 | Auto-converted fiat amount |
+| ConfirmationsBadge | 1 | Status badge driven by confirmation count |
+| ExchangeRate | 1 | BTC/fiat exchange-rate display |
+| SatBtcSwitch | 1 | Unit toggle primitive |
+| BlockClock | 4 | Block-time countdown ring |
+| MempoolStats | 4 | Pending transactions, vsize, fees |
+| FeeRate | 4 | Current sat/vB by tier |
+| MiningHashrate | 4 | Network hashrate |
+| HalvingCountdown | 4 | Halving countdown (blocks + ETA) |
+| DifficultyAdjustment | 4 | Difficulty adjustment ETA |
+| Transaction | 4 | Full transaction render |
+
+## Input
+
+| Component | Phase | Description |
+|---|---|---|
+| AddressInput | 2 | Network-aware address field |
+| AmountInput | 2 | Sat/BTC/fiat input with BigInt safety |
+| InvoiceInput | 2 | BOLT11 paste field with decoded preview |
+| LightningAddressInput | 2 | `user@domain` input with LNURL resolution |
+| PasswordInput | 2 | Password with entropy meter |
+| SeedPhraseInput | 2 | 12/15/18/21/24-word BIP39 input |
+| DerivationPathInput | 5 | BIP44/49/84/86 chips |
+| PSBTInput | 4 | Multimodal PSBT input (paste/file/UR QR) |
+| XpubInput | 5 | xpub/ypub/zpub/vpub + descriptor input |
+| MessageSigningInput | 5 | Message + address + signature |
+
+## Action
+
+| Component | Phase | Description |
+|---|---|---|
+| SendButton | 3 | Send button with loading states |
+| ReceiveButton | 3 | Receive button |
+| ConnectWallet | 3 | Auto-detects WebLN, NWC, BitcoinConnect |
+| ScanQR | 2 | Camera primitive + decoded payload |
+| CopyAddress | 3 | `asChild` clipboard helper |
+| SignMessageButton | 3 | Sign a message via provider |
+| ExportPSBT | 4 | Download / copy / QR PSBT |
+| BroadcastTx | 3 | Broadcast a signed transaction |
+
+## Composed flows (blocks)
+
+| Block | Phase | Composed of |
+|---|---|---|
+| PaymentRequest | 4 | Toggle on-chain / Lightning |
+| SendForm | 4 | Address + Amount + Fee + Send |
+| ReceiveScreen | 4 | Tabs on-chain / LN invoice |
+| WalletConnectorModal | 4 | Full ConnectWallet implementation |
+| AddressBook | 5 | List + CRUD with adapter slot |
+| TransactionList | 4 | Virtualized list, render-prop row |
+| UTXOSelector | 4 | Coin control |
+| CoinControlPanel | 5 | UTXO + change preview + privacy score |
+| ChannelsList | 5 | Lightning channels |
+| SwapInterface | 5 | Submarine swap, provider pluggable |
+
+## Education / onboarding
+
+| Block | Phase |
+|---|---|
+| SeedBackupWizard | 5 |
+| AddressTypeExplainer | 5 |
+| FeeExplainer | 5 |
+| NetworkSwitch | 5 |
+| HardwareWalletPrompt | 5 |
+
+## Data viz
+
+| Component | Phase |
+|---|---|
+| MempoolBlocks | 4 |
+| FeeHistoryChart | 4 |
+| PriceChart | 4 |
+| BlockExplorerEmbed | 5 |
+| NodeGraph | 5 |

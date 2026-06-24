@@ -1,0 +1,63 @@
+---
+title: Getting Started
+description: Install frameworkBTC and add your first component.
+---
+
+# Getting started
+
+## Requirements
+
+- Node.js 20+
+- A project using React 18 or 19 (Next.js, Vite, Remix, Astro, …)
+- Tailwind CSS (optional but recommended for the reference styles)
+
+## 1. Initialize
+
+```bash
+npx bitcoin-ui@latest init
+```
+
+This creates `components.json` in your project root, installs the Tailwind preset, and injects the design-token CSS variables into your global stylesheet. You'll be asked:
+
+- Where to place components (default: `@/components/btc-ui`)
+- Which icon library to bridge to (Lucide, Tabler, or `@btc-ui/icons`)
+- Default Bitcoin network for examples (`mainnet` / `testnet` / `signet` / `regtest`)
+- Whether you also use `shadcn/ui` (the `btcUi` alias keeps both kits separate)
+
+## 2. Add a component
+
+```bash
+npx bitcoin-ui@latest add balance
+```
+
+The CLI fetches the registry manifest, resolves the dependency graph, copies source files into your project, and installs any npm peers.
+
+## 3. Use it
+
+```tsx
+import { Balance } from "@/components/btc-ui/balance"
+
+export default function Page() {
+  return <Balance value={50_000n} unit="sat" />
+}
+```
+
+## What just got installed?
+
+- `components/btc-ui/balance.tsx` — the component source you now own.
+- `@btc-ui/core`, `@btc-ui/react` — npm dependencies for shared logic (BigInt math, formatters).
+- Updated `tailwind.config.ts` (preset added, idempotently).
+- Updated `globals.css` (design tokens added, idempotently).
+
+## Comparing against the registry
+
+Because you own the code, you can edit components freely — but it's useful to see what's drifted:
+
+```bash
+npx bitcoin-ui@latest diff balance
+```
+
+## Next steps
+
+- [Browse components](/docs/components)
+- Read [CONTRIBUTING.md](https://github.com/frameworkBTC/frameworkBTC/blob/main/CONTRIBUTING.md) to ship your own

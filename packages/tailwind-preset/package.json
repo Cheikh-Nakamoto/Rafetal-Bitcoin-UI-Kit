@@ -1,0 +1,25 @@
+{
+  "name": "@btc-ui/tailwind-preset",
+  "version": "0.0.0",
+  "description": "Tailwind preset with frameworkBTC design tokens (Bitcoin orange, Lightning purple, fee tiers, network colors).",
+  "license": "MIT",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": {
+      "import": "./src/index.js",
+      "require": "./src/index.cjs"
+    }
+  },
+  "files": ["src", "README.md"],
+  "scripts": {
+    "typecheck": "echo 'no-op'",
+    "clean": "echo 'no-op'"
+  },
+  "peerDependencies": {
+    "tailwindcss": "^3.4.0 || ^4.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

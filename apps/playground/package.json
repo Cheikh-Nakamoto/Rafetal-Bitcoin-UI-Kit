@@ -1,0 +1,29 @@
+{
+  "name": "@btc-ui/playground",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Storybook playground for frameworkBTC components. Used for visual regression via Chromatic.",
+  "type": "module",
+  "scripts": {
+    "dev": "storybook dev -p 6006",
+    "build": "storybook build",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf storybook-static .turbo"
+  },
+  "dependencies": {
+    "@btc-ui/react": "workspace:*",
+    "@btc-ui/react-tailwind": "workspace:*",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@btc-ui/tsconfig": "workspace:*",
+    "@storybook/addon-essentials": "^8.3.5",
+    "@storybook/react": "^8.3.5",
+    "@storybook/react-vite": "^8.3.5",
+    "@types/react": "^18.3.11",
+    "storybook": "^8.3.5",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.8"
+  }
+}

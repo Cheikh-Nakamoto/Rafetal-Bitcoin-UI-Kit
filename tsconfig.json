@@ -1,0 +1,12 @@
+{
+  "extends": "./packages/tsconfig/base.json",
+  "include": [],
+  "references": [
+    { "path": "./packages/core" },
+    { "path": "./packages/react" },
+    { "path": "./packages/react-tailwind" },
+    { "path": "./packages/cli" },
+    { "path": "./packages/icons" },
+    { "path": "./packages/tailwind-preset" }
+  ]
+}

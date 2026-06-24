@@ -1,0 +1,56 @@
+---
+title: Architecture
+description: How the three layers fit together — core, react, registry.
+---
+
+# Architecture
+
+frameworkBTC is built in three layers, each independently consumable.
+
+## 1. Core (`@btc-ui/core`)
+
+Pure TypeScript. Zero React, zero DOM, zero UI framework. Contains:
+
+- **Units** — sat / BTC / msat math via BigInt only.
+- **Format** — locale-aware formatters.
+- **Address** — network-aware validation (mainnet/testnet/signet/regtest).
+- **BOLT11** — Lightning invoice decoder.
+- **BIP21** — `bitcoin:` URI parsing/encoding.
+- **BIP39** — mnemonic wordlists + checksum validation.
+- **PSBT** — wrapper around `bitcoinjs-lib` (heavy; not in default barrel).
+- **Fees** — sat/vB helpers and fee tier picker.
+- **Mempool** — client for mempool.space (REST + WebSocket).
+- **Price** — pluggable exchange-rate aggregator.
+- **Wallet** — provider abstraction over WebLN, NWC (NIP-47), BitcoinConnect.
+- **LNURL** — pay / withdraw / auth + Lightning Address resolver.
+- **QR** — framework-agnostic QR matrix encoder.
+
+Import from subpaths for optimal tree-shaking: `import { fromSat } from "@btc-ui/core/units"`.
+
+## 2. React adapter (`@btc-ui/react`)
+
+Thin shells over `@btc-ui/core`:
+
+- **Hooks** — `useBitcoinPrice`, `useBlockHeight`, `useWebLN`, … Return `{ data, error, isLoading }`. SWR/TanStack Query are peer dependencies — bring your own cache.
+- **Primitives** — headless compound components (`<Balance.Root>`, `<Balance.Value>`, `<Balance.Unit>`) with `asChild` and render-props. No styles.
+
+## 3. Registry (`apps/registry`)
+
+A ShadCN-style catalog: each component is source code, served as a JSON manifest, copied into the user's project by the CLI. Two flavors:
+
+- `default` — Tailwind reference implementation
+- `headless` — unstyled variants
+
+The CLI (`bitcoin-ui`) resolves dependency graphs, applies path/alias transforms, and merges Tailwind / CSS variable configs idempotently.
+
+## Why three layers?
+
+Each layer answers a different question:
+
+| Layer | Question | Owner |
+|---|---|---|
+| Core | "How do I parse a BOLT11 invoice without floats?" | npm package — maintained by frameworkBTC |
+| React | "How do I subscribe to block height without writing useEffect?" | npm package — maintained by frameworkBTC |
+| Registry | "How do I render a Balance that matches my brand?" | source code — maintained by **you** after `add` |
+
+You can use the core without React. You can use React primitives without the registry. The CLI is a convenience, not a runtime.
