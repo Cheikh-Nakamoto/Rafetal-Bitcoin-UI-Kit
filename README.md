@@ -1,6 +1,6 @@
 <div align="center">
 
-# frameworkBTC
+# Rafetal Bitcoin UI Kit
 
 **The ShadCN of Bitcoin.**
 
@@ -17,7 +17,7 @@ for building Bitcoin and Lightning apps — on-chain, off-chain, and everything 
 
 Every new Bitcoin app starts the same way: building a balance display, an address formatter, a block clock, a fee selector, a seed phrase input — from scratch. ShadCN solved this problem for general web UI. [Bitcoin UI Kit](https://www.bitcoin-ui-kit.com) is the closest precedent for Bitcoin, but coverage is narrow and there's no community directory.
 
-**frameworkBTC builds the next layer.** Copy-paste components you own. No npm runtime lock-in for the visual layer. Bitcoin-native concerns (BigInt sat math, network awareness, wallet protocols, hardware wallet flows) baked into the core.
+**Rafetal builds the next layer.** Copy-paste components you own. No npm runtime lock-in for the visual layer. Bitcoin-native concerns (BigInt sat math, network awareness, wallet protocols, hardware wallet flows) baked into the core.
 
 ## How it's different
 

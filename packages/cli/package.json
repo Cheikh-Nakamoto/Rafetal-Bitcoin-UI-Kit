@@ -1,7 +1,7 @@
 {
   "name": "@btc-ui/cli",
   "version": "0.0.0",
-  "description": "The bitcoin-ui CLI — installs and manages frameworkBTC components in your project.",
+  "description": "The bitcoin-ui CLI — installs and manages Rafetal components in your project.",
   "license": "MIT",
   "type": "module",
   "bin": {

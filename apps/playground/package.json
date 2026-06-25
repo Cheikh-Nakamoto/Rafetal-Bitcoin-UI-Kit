@@ -2,7 +2,7 @@
   "name": "@btc-ui/playground",
   "version": "0.0.0",
   "private": true,
-  "description": "Storybook playground for frameworkBTC components. Used for visual regression via Chromatic.",
+  "description": "Storybook playground for Rafetal components. Used for visual regression via Chromatic.",
   "type": "module",
   "scripts": {
     "dev": "storybook dev -p 6006",

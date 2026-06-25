@@ -3,7 +3,7 @@
  *
  * NEVER use `number` for satoshi math — floats lose precision and produce
  * silent fund-loss bugs (e.g. `0.1 + 0.2 !== 0.3`). All amounts internal to
- * frameworkBTC are `bigint` satoshis. Lightning amounts add a `msat` layer
+ * Rafetal are `bigint` satoshis. Lightning amounts add a `msat` layer
  * (1 sat = 1000 msat) also represented as `bigint`.
  */
 

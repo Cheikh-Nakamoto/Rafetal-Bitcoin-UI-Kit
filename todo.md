@@ -1,4 +1,4 @@
-# frameworkBTC — Inventaire des composants
+# Rafetal Bitcoin UI Kit — Inventaire des composants
 
 > Catalogue exhaustif des composants UI Bitcoin à construire.
 > Total : **38 composants atomiques + 15 blocks composés + 20 hooks ≈ 73 unités**.

@@ -1,4 +1,4 @@
-# Building frameworkBTC: Headless Components for Bitcoin
+# Building Rafetal: Headless Components for Bitcoin
 
 *How we built a ShadCN-style component registry that refuses to lose a satoshi.*
 
@@ -11,7 +11,7 @@ What follows is the architecture we landed on, the deliberate trade-offs, and th
 ## Architecture in one diagram
 
 ```
-frameworkBTC/
+Rafetal-Bitcoin-UI-Kit/
 ├── apps/
 │   ├── registry/             # btc-ui.dev — Next.js 15 + Fumadocs
 │   │   ├── registry/         # source-of-truth components (copy-paste)
@@ -35,7 +35,7 @@ frameworkBTC/
 
 ## Three layers, one job each
 
-frameworkBTC is structured as three vertically stacked layers:
+Rafetal is structured as three vertically stacked layers:
 
 ```
 ┌──────────────────────────────────────────────────┐
@@ -273,12 +273,12 @@ Open questions, in priority order:
 - **On-chain wallet provider standardization.** WebLN/NWC/BitcoinConnect cover Lightning. There is no equivalent for on-chain (PSBT signing, address generation). Do we propose one, or do we wait?
 - **Paid components.** A `SwapInterface` integrating a specific liquidity provider is more vendor-specific than the rest of the catalog. We're undecided whether those belong in the open registry, in a separate paid registry, or in vendor-maintained repos consumed via custom registry URLs.
 
-If you want to weigh in on any of these, the RFC process lives in `/rfcs` in the repo. PRs welcome. Star the [repo](https://github.com/frameworkBTC/frameworkBTC) — it remains the single most useful thing a reader can do for the project today.
+If you want to weigh in on any of these, the RFC process lives in `/rfcs` in the repo. PRs welcome. Star the [repo](https://github.com/Cheikh-Nakamoto/Rafetal-Bitcoin-UI-Kit) — it remains the single most useful thing a reader can do for the project today.
 
 Bitcoin's UX is a coordination problem. We're building the coordination tool.
 
 ---
 
-*frameworkBTC is MIT-licensed. The code lives at [github.com/frameworkBTC/frameworkBTC](https://github.com/frameworkBTC/frameworkBTC). The docs and component catalog live at [btc-ui.dev](https://btc-ui.dev).*
+*Rafetal Bitcoin UI Kit is MIT-licensed. The code lives at [github.com/Cheikh-Nakamoto/Rafetal-Bitcoin-UI-Kit](https://github.com/Cheikh-Nakamoto/Rafetal-Bitcoin-UI-Kit). The docs and component catalog live at [btc-ui.dev](https://btc-ui.dev).*
 
 *Catch up on [Article 1: Why Bitcoin Needs Its Own ShadCN](./01-why-bitcoin-needs-shadcn.md) for the vision and motivation behind the project.*

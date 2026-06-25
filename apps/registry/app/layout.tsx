@@ -2,7 +2,7 @@ import type { ReactNode } from "react"
 import "./globals.css"
 
 export const metadata = {
-  title: "frameworkBTC — The ShadCN of Bitcoin",
+  title: "Rafetal Bitcoin UI Kit — The ShadCN of Bitcoin",
   description:
     "Copy-paste UI components for Bitcoin and Lightning apps. Headless, accessible, BigInt-safe.",
 }

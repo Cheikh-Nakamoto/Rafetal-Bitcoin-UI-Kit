@@ -1,12 +1,12 @@
-# Contributing to frameworkBTC
+# Contributing to Rafetal Bitcoin UI Kit
 
-Thanks for being interested. frameworkBTC is meant to be a community-driven catalog — we want your PRs.
+Thanks for being interested. Rafetal is meant to be a community-driven catalog — we want your PRs.
 
 ## Quick start
 
 ```bash
-git clone https://github.com/<your-fork>/frameworkBTC.git
-cd frameworkBTC
+git clone https://github.com/<your-fork>/Rafetal-Bitcoin-UI-Kit.git
+cd Rafetal-Bitcoin-UI-Kit
 pnpm install
 pnpm dev
 ```
@@ -66,4 +66,4 @@ Be kind. Bitcoin is contentious; this project is not. Disagreements about techni
 
 ## Questions
 
-Open a [Discussion](https://github.com/frameworkBTC/frameworkBTC/discussions) or jump in our community channels (linked from the docs site).
+Open a [Discussion](https://github.com/Cheikh-Nakamoto/Rafetal-Bitcoin-UI-Kit/discussions) or jump in our community channels (linked from the docs site).

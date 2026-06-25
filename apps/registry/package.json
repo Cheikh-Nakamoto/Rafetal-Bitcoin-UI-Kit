@@ -2,7 +2,7 @@
   "name": "@btc-ui/registry",
   "version": "0.0.0",
   "private": true,
-  "description": "btc-ui.dev — the public docs site and component registry for frameworkBTC.",
+  "description": "btc-ui.dev — the public docs site and component registry for Rafetal.",
   "license": "MIT",
   "type": "module",
   "scripts": {

@@ -36,9 +36,9 @@ What's missing:
 - **Multi-protocol wallet abstraction.** WebLN, NWC (Nostr Wallet Connect), BitcoinConnect — three increasingly-important protocols, each implemented from scratch in every app.
 - **First-class network awareness.** Mainnet, testnet, signet, regtest — validation and formatting must accept all four. Most libraries silently assume mainnet.
 
-## Introducing frameworkBTC
+## Introducing Rafetal Bitcoin UI Kit
 
-[frameworkBTC](https://btc-ui.dev) is a community-driven catalog of UI components for Bitcoin and Lightning apps, built on the ShadCN model.
+[Rafetal Bitcoin UI Kit](https://btc-ui.dev) is a community-driven catalog of UI components for Bitcoin and Lightning apps, built on the ShadCN model.
 
 **The pitch in one sentence.** Run `npx bitcoin-ui add balance` and a BigInt-safe, network-aware, accessible Balance component lands in your repo, written in whatever framework you use, ready to be styled in whatever design system you ship.
 
@@ -47,13 +47,13 @@ The model has two layers:
 1. **A copy-paste registry** for the visual components (Balance, AddressInput, FeeSelector, SendForm, WalletConnector, …). You own the source. You can fork it, restyle it, audit it.
 2. **A set of npm packages** for the parts that don't make sense to copy-paste: the BigInt sat math, the BOLT11 decoder, the address validator, the wallet provider abstraction. These are in `@btc-ui/core` and `@btc-ui/react`. They're tiny, ESM-only, tree-shakeable, and have zero telemetry.
 
-The combination matters. ShadCN's pure-registry model is great for buttons but breaks down for cryptographic logic — you don't want every project to fork its own BOLT11 decoder. frameworkBTC keeps the *security-sensitive logic* in audited npm packages, and lets the *visual layer* live in your codebase, where you can shape it freely.
+The combination matters. ShadCN's pure-registry model is great for buttons but breaks down for cryptographic logic — you don't want every project to fork its own BOLT11 decoder. Rafetal keeps the *security-sensitive logic* in audited npm packages, and lets the *visual layer* live in your codebase, where you can shape it freely.
 
 ## What we mean by "headless first"
 
 Bitcoin apps span an enormous design surface. Mutiny is a dark mobile wallet. Strike is a clean fintech UI. Sparrow is a desktop dev tool. A self-custody hardware-wallet companion looks nothing like a Lightning tipping plugin.
 
-A single styled component cannot serve all of them. So frameworkBTC ships components in two flavors:
+A single styled component cannot serve all of them. So Rafetal ships components in two flavors:
 
 - **Headless primitives** (`@btc-ui/react/primitives`) — Radix-style compound components with `asChild`, slots, render-props. They handle the *logic* (state, validation, formatting, accessibility) and emit raw data. You bring the styles.
 - **A Tailwind reference implementation** (`@btc-ui/react-tailwind`) — opinionated, themable via CSS variables. It is *the default style*, not *the only style*. You can copy it, fork it, replace it.
@@ -62,7 +62,7 @@ Think of the headless layer as the engine and the reference implementation as on
 
 ## Bitcoin-native by default
 
-A few things frameworkBTC takes seriously, that off-the-shelf component libraries typically don't:
+A few things Rafetal takes seriously, that off-the-shelf component libraries typically don't:
 
 - **BigInt sat math.** Every amount in the API is a `bigint`. We refuse `number` at the type level. A custom lint rule catches accidental float arithmetic in PRs. This is not a stylistic choice — it is the difference between an app that loses money and one that doesn't.
 - **Network awareness.** Every validator accepts a `network: "mainnet" | "testnet" | "signet" | "regtest"` parameter. You will not accidentally accept a testnet address into a mainnet flow.
@@ -84,13 +84,13 @@ The catalog covers roughly **38 atomic components, 15 composed blocks, 20 hooks*
 | 4 | Composed flows — SendForm, ReceiveScreen, TransactionList, PaymentRequest — and data viz |
 | 5 | Education, advanced (UTXOSelector, ChannelsList, SwapInterface), community RFC process |
 
-The full inventory and variant strategy live in [`todo.md`](https://github.com/frameworkBTC/frameworkBTC/blob/main/todo.md) in the repo.
+The full inventory and variant strategy live in [`todo.md`](https://github.com/Cheikh-Nakamoto/Rafetal-Bitcoin-UI-Kit/blob/main/todo.md) in the repo.
 
 ## Variants without the variant explosion
 
 A common failure mode of component libraries is the variant explosion: `<Balance variant="compact" />`, `<Balance variant="expanded" />`, `<Balance variant="inline" />`, `<Balance variant="compact-with-fiat" />`, … until you have thirty props and a maintenance nightmare.
 
-frameworkBTC sidesteps this by leaning on four patterns:
+Rafetal sidesteps this by leaning on four patterns:
 
 1. **Compound components.** `<Balance.Root>`, `<Balance.Value>`, `<Balance.Unit>`, `<Balance.Toggle>` — the user reorders, omits, or styles each slot independently.
 2. **`asChild`.** Delegate the rendering to the user's design-system primitives. We keep the logic, they keep the look.
@@ -107,24 +107,24 @@ Every team that has shipped a Bitcoin app has solved the same primitives, with t
 
 ShadCN proved that a registry-shaped catalog *does* let work compound — because the unit of sharing is small (a single component), the unit of ownership is small (the user owns the file), and the unit of contribution is small (one PR adds one component to the registry).
 
-frameworkBTC bets that the same shape works for Bitcoin — and that solving the UI layer once, in public, removes one of the biggest sources of friction in the ecosystem.
+Rafetal bets that the same shape works for Bitcoin — and that solving the UI layer once, in public, removes one of the biggest sources of friction in the ecosystem.
 
 ## How to help
 
-- **Star [the repo](https://github.com/frameworkBTC/frameworkBTC).** It is more useful than you think — it tells maintainers and contributors the project is alive.
+- **Star [the repo](https://github.com/Cheikh-Nakamoto/Rafetal-Bitcoin-UI-Kit).** It is more useful than you think — it tells maintainers and contributors the project is alive.
 - **Open an issue** describing what your team has rebuilt three times. That's the signal for what belongs in the catalog.
-- **Pick a component from [`todo.md`](https://github.com/frameworkBTC/frameworkBTC/blob/main/todo.md) and ship it.** Each one is a self-contained PR. Contribution guidelines are in [CONTRIBUTING.md](https://github.com/frameworkBTC/frameworkBTC/blob/main/CONTRIBUTING.md).
+- **Pick a component from [`todo.md`](https://github.com/Cheikh-Nakamoto/Rafetal-Bitcoin-UI-Kit/blob/main/todo.md) and ship it.** Each one is a self-contained PR. Contribution guidelines are in [CONTRIBUTING.md](https://github.com/Cheikh-Nakamoto/Rafetal-Bitcoin-UI-Kit/blob/main/CONTRIBUTING.md).
 - **Run an RFC** if you want to propose a deeper change — a new wallet protocol, a new framework adapter, a new design token system.
 - **Sponsor** if you ship a Bitcoin product and want this work to move faster. The roadmap is public; the line items are clear.
 
 ## What's next
 
-This is Article 1 — the vision. Article 2 ([*"Building frameworkBTC: Headless Components for Bitcoin"*](#)) is the technical deep-dive: how we implement BigInt sat math without losing precision, how we decode BOLT11 without dragging 200kB of crypto into your bundle, how the registry CLI resolves a dependency graph and merges your Tailwind config idempotently, how a single `WalletProvider` interface unifies WebLN, NWC, and BitcoinConnect.
+This is Article 1 — the vision. Article 2 ([*"Building Rafetal: Headless Components for Bitcoin"*](./02-building-rafetal.md)) is the technical deep-dive: how we implement BigInt sat math without losing precision, how we decode BOLT11 without dragging 200kB of crypto into your bundle, how the registry CLI resolves a dependency graph and merges your Tailwind config idempotently, how a single `WalletProvider` interface unifies WebLN, NWC, and BitcoinConnect.
 
 Bitcoin's UX problem is a coordination problem. Let's solve it once.
 
 ---
 
-*frameworkBTC is MIT-licensed. The code lives at [github.com/frameworkBTC/frameworkBTC](https://github.com/frameworkBTC/frameworkBTC). The docs and component catalog live at [btc-ui.dev](https://btc-ui.dev).*
+*Rafetal Bitcoin UI Kit is MIT-licensed. The code lives at [github.com/Cheikh-Nakamoto/Rafetal-Bitcoin-UI-Kit](https://github.com/Cheikh-Nakamoto/Rafetal-Bitcoin-UI-Kit). The docs and component catalog live at [btc-ui.dev](https://btc-ui.dev).*
 
 *If you build Bitcoin apps and want to chat about the roadmap, my inbox is open.*
