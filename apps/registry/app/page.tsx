@@ -6,9 +6,7 @@ export default function HomePage() {
       <p className="mb-4 inline-block rounded-full bg-btc/10 px-3 py-1 text-xs font-medium text-btc">
         Phase 0 · scaffolding
       </p>
-      <h1 className="mb-6 text-5xl font-bold tracking-tight">
-        The ShadCN of Bitcoin.
-      </h1>
+      <h1 className="mb-6 text-5xl font-bold tracking-tight">The ShadCN of Bitcoin.</h1>
       <p className="mb-8 text-lg text-foreground/70">
         A copy-paste registry of accessible, unstyled, framework-agnostic UI components for building
         Bitcoin and Lightning apps. Headless first, Tailwind reference, BigInt-safe.

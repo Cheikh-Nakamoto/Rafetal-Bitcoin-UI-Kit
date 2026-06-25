@@ -1,5 +1,5 @@
-import type { Config } from "tailwindcss"
 import preset from "@btc-ui/tailwind-preset"
+import type { Config } from "tailwindcss"
 
 const config: Config = {
   presets: [preset],

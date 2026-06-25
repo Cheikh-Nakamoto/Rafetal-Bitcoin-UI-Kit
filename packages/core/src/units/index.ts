@@ -265,20 +265,20 @@ function divide(num: bigint, den: bigint, mode: RoundingMode): bigint {
       return q
     case "floor":
       // BigInt division truncates toward zero; for negatives we need q-1.
-      return r !== 0n && (num < 0n) !== (den < 0n) ? q - 1n : q
+      return r !== 0n && num < 0n !== den < 0n ? q - 1n : q
     case "ceil":
-      return r !== 0n && (num < 0n) === (den < 0n) ? q + 1n : q
+      return r !== 0n && num < 0n === den < 0n ? q + 1n : q
     case "round": {
       // Half-to-even (banker's rounding).
       const twiceRem = (r < 0n ? -r : r) * 2n
       const absDen = den < 0n ? -den : den
       if (twiceRem < absDen) return q
       if (twiceRem > absDen) {
-        return (num < 0n) !== (den < 0n) ? q - 1n : q + 1n
+        return num < 0n !== den < 0n ? q - 1n : q + 1n
       }
       // Exactly half — pick the even neighbor.
       if (q % 2n === 0n) return q
-      return (num < 0n) !== (den < 0n) ? q - 1n : q + 1n
+      return num < 0n !== den < 0n ? q - 1n : q + 1n
     }
   }
 }

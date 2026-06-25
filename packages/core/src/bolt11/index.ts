@@ -1,3 +1,4 @@
+import type { Network } from "../address/index.js"
 /**
  * BOLT11 (Lightning invoice) decoder.
  *
@@ -7,7 +8,6 @@
  * Status: Phase 0 — stub.
  */
 import type { Amount } from "../units/index.js"
-import type { Network } from "../address/index.js"
 
 export interface DecodedInvoice {
   readonly network: Network

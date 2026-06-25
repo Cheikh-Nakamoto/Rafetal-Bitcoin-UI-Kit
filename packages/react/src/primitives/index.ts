@@ -5,4 +5,4 @@
  * Status: Phase 0 — placeholders so the package builds.
  */
 
-export const __PHASE_0_PLACEHOLDER__ = true as const
+export const __PRIMITIVES_PHASE_0_PLACEHOLDER__ = true as const

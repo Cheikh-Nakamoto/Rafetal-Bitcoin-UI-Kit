@@ -5,9 +5,9 @@
  * full implementation lands in Phase 1.
  */
 import { cac } from "cac"
-import { init } from "./commands/init.js"
 import { add } from "./commands/add.js"
 import { diff } from "./commands/diff.js"
+import { init } from "./commands/init.js"
 import { list } from "./commands/list.js"
 
 const cli = cac("bitcoin-ui")
@@ -23,9 +23,7 @@ cli
   .option("--overwrite", "Overwrite existing files without prompting")
   .action(add)
 
-cli
-  .command("diff [component]", "Diff your local copy against the registry version")
-  .action(diff)
+cli.command("diff [component]", "Diff your local copy against the registry version").action(diff)
 
 cli.command("list", "List all available components in the registry").action(list)
 

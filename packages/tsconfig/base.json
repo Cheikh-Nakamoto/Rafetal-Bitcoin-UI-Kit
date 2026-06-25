@@ -22,8 +22,7 @@
     "noUnusedParameters": true,
     "exactOptionalPropertyTypes": false,
 
-    "skipLibCheck": true,
-    "incremental": true
+    "skipLibCheck": true
   },
   "exclude": ["node_modules", "dist", ".turbo", "coverage"]
 }

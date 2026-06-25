@@ -9,8 +9,11 @@ export * from "./units/index.js"
 export * from "./format/index.js"
 export * from "./address/index.js"
 export * from "./bolt11/index.js"
-export * from "./bip21/index.js"
-export * from "./bip39/index.js"
+// bip21 / bip39 are namespaced here to avoid barrel collisions on generic
+// names (`encode`, `ParseResult`, `ValidateResult`). Their subpaths keep the
+// flat API: `import { encode } from "@btc-ui/core/bip21"`.
+export * as bip21 from "./bip21/index.js"
+export * as bip39 from "./bip39/index.js"
 export * from "./fees/index.js"
 export * from "./mempool/index.js"
 export * from "./price/index.js"

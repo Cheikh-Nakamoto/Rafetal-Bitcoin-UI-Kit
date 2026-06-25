@@ -15,7 +15,7 @@ export interface FeeEstimates {
   readonly minimumFee: number
 }
 
-export function pickFee(estimates: FeeEstimates, _tier: FeeTier): number {
+export function pickFee(_estimates: FeeEstimates, _tier: FeeTier): number {
   throw new Error("TODO(phase-0): implement pickFee")
 }
 
